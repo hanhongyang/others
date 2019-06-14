@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Aone Platform</title>
+<link rel="stylesheet"
+	th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Web高级编程教学网站</a>
+</nav>
+
+    <div class="sidebar">
+<ol >
+    <h4 style="font-weight:200">章节内容 :</h4>            
+        <li th:each="task : ${tasks}" th:text="${task}"></li>
+    </ol>
+    </div>
+
+    <div class="starter-template">
+        <h3>教学进度安排</h3>
+<div class="bs-example" data-example-id="striped-table">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>周次</th>
+          <th>课程内容</th>
+          <th>上课地点</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>第10周</td>
+          <td>任务1</td>
+          <td>C202</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>第11周</td>
+          <td>任务2</td>
+          <td>C202</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>第12周</td>
+          <td>任务3</td>
+          <td>C202</td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /example -->
+ <!-- 
+    <main role="main" class="container">
+</main>
+-->
+
+
+
+
+
+<script type="text/javascript"
+		th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</body>
+</html>

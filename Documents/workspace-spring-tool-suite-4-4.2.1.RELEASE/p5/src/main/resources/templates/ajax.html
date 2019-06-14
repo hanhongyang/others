@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>aaajax</title>
+</head>
+<body>
+<h1 id="msg"></h1>
+<input id="btn"type="button" value="change text">
+
+<script type="text/javascript" th:src="@{webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#btn").click(function(){
+		$.ajax({
+	        url: "http://localhost:8080/task/1"
+	    }).then(function(data) {
+	    	$("#msg").text(data.id+":"+data.description);
+	    });
+
+	});
+});
+</script>
+</body>
+</html>

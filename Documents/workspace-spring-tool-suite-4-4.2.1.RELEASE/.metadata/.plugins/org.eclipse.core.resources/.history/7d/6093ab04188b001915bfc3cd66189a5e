@@ -1,0 +1,5 @@
+package webadv.s99201105.aop;
+
+public class AuthInterceptor {
+
+}

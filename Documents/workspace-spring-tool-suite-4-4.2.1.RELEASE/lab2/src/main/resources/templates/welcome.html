@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>lab2</title>
+<link rel="stylesheet"
+	th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+	
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">WEB高级编程教学网站</a>
+ <div class="form-inline">
+    <input type="text" class="form-control" id="111" >
+ 
+<input id="222" type="submit"class="btn btn-primary">
+</div>
+</nav>
+
+	<div class="container-fluid mt-5 col-md-12 ">
+		
+  <h1 id="msg">请输入文章号1~2</h1>
+      
+      内容<h2 id="msg2"></h2>
+        
+        
+	</div>
+
+<script type="text/javascript" th:src="@{webjars/jquery/3.0.0/jquery.min.js}"></script>
+<script type="text/javascript">
+               $(document).ready(function(){
+	             $("#222").click(function(){
+	          	$.ajax({
+	        url: "/task/"+$("#111").val()
+	        }).then(function(data) {
+	    	$("#msg").text("主题"+data.id);
+	    	$("#msg2").text(data.description);
+	    });
+	});
+});
+</script>
+
+	<script type="text/javascript"
+		th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+	<script type="text/javascript"
+		th:src="@{/js/task.js}"></script>
+
+</body>
+</html>

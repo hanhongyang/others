@@ -1,0 +1,23 @@
+package webadv.s16202234.UserRepository;
+@Repository
+
+public class UserRepository {
+
+		
+		@Autowired
+		private JdbcTemplate jdbcTemplate;	
+		public List<Teacher> findAll(){		
+			// бн		
+		}
+		
+		public Teacher validTeacher(String account,String password) {
+			String sql="select teacher_id as id,teacher_account as account,teacher_name as name from t_teacher where teacher_account=? and teacher_password=md5(?)";		
+			RowMapper<Teacher> rowMapper=new BeanPropertyRowMapper<Teacher>(Teacher.class);
+			List<Teacher> list = jdbcTemplate.query(sql, rowMapper,account,password);	
+			if (list != null && list.size()>0) {
+				System.out.println(list.get(0).getName());
+				return list.get(0);
+			}else
+				return null;				
+		}
+	}
